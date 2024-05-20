@@ -1,0 +1,28 @@
+<header>
+    <div class="box primary flex-row wordmark">Campus Events</div>
+    <div class="flex-row nav-bar">
+        <a href="/">Home</a>
+
+        {% if user is defined %}
+
+        <a href="/create">Create Event</a>
+
+        <div style="margin: auto; opacity: 0;"></div>
+
+        <a href="/account">Logged in as {{ user }}</a>
+        <a href="/logout">Log out</a>
+
+        {% else %}
+
+        <div style="margin: auto; opacity: 0;"></div>
+    
+        <a href="/login">Login</a>
+        <a href="/signup">Sign up</a>
+
+        {% endif %}
+    </div>
+
+    {% if error is defined %}
+    <div class="box secondary error">{{error}}</div>
+    {% endif %}
+</header>

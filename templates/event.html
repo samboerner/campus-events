@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/styles/styles.css">
+    <title>Cyclone Events</title>
+</head>
+
+<body>
+    <div class="content-wrapper">
+        {% include 'header.html' %}
+        <div class="white box flex-col">
+            <div class="flex-row align-baseline" style="font-size: 1.7em;">
+                <div class="large-text">{{event.name}}</div>
+                <div>{{event.date}}</div>
+            </div>
+
+            {% if user is defined %}
+
+                {% if user_rsvp is true %}
+                <button disabled>You have RSVP'd</button>    
+                {% else %}
+                <form action="/rsvp/{{event.id}}" method="post">
+                    <button class="primary full-width">RSVP</button>
+                </form>
+                {% endif %}
+
+            {% else %}
+            <button disabled>Log in to RSVP</button>
+            {% endif %}
+
+            <div class="flex-row">
+                <div class="full-width flex-col">
+                    <div class="large-text">Description</div>
+                    <textarea readonly>{{event.description}}</textarea>
+                </div>
+
+                <div class="full-width flex-col">
+                    <div class="large-text">Attendees</div>
+                    <textarea readonly>
+                        {%- if rsvp_users -%}
+                        {{rsvp_users | join(',\n')}}
+                        {%- endif -%}
+                    </textarea>
+                </div>
+            </div>
+
+            <div class="flex-col">
+                <div class="large-text">Discussion</div>
+
+                {% if user is defined %}
+                <form class="flex-col" action="/post-comment/{{event.id}}" method="post">
+                    <div><strong>Post comment</strong></div>
+                    <div class="flex-row">
+                        <input autocomplete="off" name="comment" type="text">
+                        <button class="primary" type="submit">Send</button>
+                    </div>
+                </form>
+                {% else %}
+                <div>Log in to post a comment</div>
+                {% endif %}
+
+                {% for comment in comments %}
+                <div class="comment">
+                    <div class="user">{{comment.user}}</div>
+                    <div class="body">{{comment.comment}}</div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% include 'footer.html' %}
+    </div>
+</body>
+
+</html>

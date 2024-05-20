@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/styles/styles.css">
+    <title>Log In</title>
+</head>
+
+<body class="single-page-center">
+    <div class="floating-box flex-col">
+        <div class="large-text">Login</div>
+        <form class="flex-col" action="/login" method="post">
+            <div>
+                <input autocomplete="off" autofocus id="username" name="username"
+                    placeholder="Username" type="text">
+            </div>
+            <div>
+                <input id="password" name="password" placeholder="Password"
+                    type="password">
+            </div>
+            <button class="primary" type="submit">Log In</button>
+
+            {% if error is defined %}
+            <div class="box secondary error">{{error}}</div>
+            {% endif %}
+        </form>
+    </div>
+</body>
+
+</html>

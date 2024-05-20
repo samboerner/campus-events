@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/styles/styles.css">
+    <title>Sign up for an account</title>
+</head>
+
+<body class="single-page-center">
+    <div class="floating-box flex-col">
+        <form class="flex-col" action="/signup" method="post">
+            <div class="large-text">Sign up</div>
+            <div>
+                <input autocomplete="off" autofocus name="username" placeholder="Username" type="text">
+            </div>
+            <div>
+                <input name="password" placeholder="Password" type="password">
+            </div>
+            <div>
+                <input name="confirmation" placeholder="Confirm Password" type="password">
+            </div>
+            <button class="primary" type="submit">Sign Up</button>
+
+            {% if error is defined %}
+            <div class="box secondary error">{{error}}</div>
+            {% endif %}
+        </form>
+    </div>
+</body>
+
+</html>

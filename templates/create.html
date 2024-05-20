@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/styles/styles.css">
+    <title>Cyclone Events</title>
+</head>
+
+<body>
+    <div class="content-wrapper">
+        {% include 'header.html' %}
+        <div class="box white flex-col">
+            <div class="large-text">Create new event</div>
+            <form class="flex-col" action="/create" method="post">
+                <div>Event name</div>
+                <input autocomplete="off" autofocus name="name" type="text">
+
+                <div>Date</div>
+                <input name="date" type="date">
+
+                <div>Description</div>
+                <textarea name="description" id="description"></textarea>
+                <button class="primary" type="submit">Create</button>
+
+            </form>
+        </div>
+        {% include 'footer.html' %}
+    </div>
+</body>
+
+</html>

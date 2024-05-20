@@ -1,0 +1,153 @@
+@import url("./root.css");
+
+body {
+    margin: 0;
+    background-color: var(--page-bg-color);
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+footer {
+    font-size: .8rem;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    white-space: nowrap;
+}
+
+.primary {
+    background: var(--primary-color);
+    color: white;
+}
+
+.secondary {
+    background: var(--secondary-color);
+    color: black;
+}
+
+.white {
+    background: white;
+    color: black;
+}
+
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 2rem auto;
+    width: 100dvw;
+    max-width: 70rem;
+}
+
+.single-page-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: var(--page-bg-color);
+}
+
+.floating-box {
+    padding: 2rem;
+    border-radius: .5rem;
+    background: white;
+    filter: drop-shadow(0 0 1rem var(--shadow-color));
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    gap: 1.2rem;
+}
+
+.align-baseline {
+    align-items: baseline;
+}
+
+.box {
+    padding: 1rem;
+    border-radius: .5rem;
+}
+
+.error::before {
+    content: "⚠︎ ";
+}
+
+.large-text {
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+.wordmark {
+    font-size: 2em;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.nav-bar {
+    margin: .75rem 0;
+}
+
+.nav-bar > * {
+    background: white;
+    border-radius: .5rem;
+    color: black;
+    padding: .5em 1em;
+    filter: drop-shadow(0 0 .2rem var(--shadow-color));
+    text-decoration: none;
+    transition-duration: .1s;
+}
+
+.nav-bar > a:hover {
+    background: var(--secondary-color);
+}
+
+.full-width {
+    width: 100%;
+}
+
+.comment {
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+    padding: 1rem;
+    border-radius: .5rem;
+    background-color: #F3F3F3;
+}
+
+.comment > .user {
+    font-weight: 600;
+    font-size: .9em;
+    font-style: italic;
+}
+
+.account-event {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    padding: 1rem;
+    border-radius: .5rem;
+    background-color: #F3F3F3;
+    text-decoration: none;
+    color: black;
+    transition-duration: .1s;
+}
+
+.account-event:hover {
+    cursor: pointer;
+    background-color: var(--secondary-color);
+}
+
+.account-event > .name {
+    font-weight: 600;
+    font-size: 1.2rem;
+}

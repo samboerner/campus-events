@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --primary-color: #d62231;
+    --secondary-color: #ffe868;
+    --page-bg-color: #FCEEF0;
+    --shadow-color: #00000040;
+
+    color: black;
+    font-family: "Archivo", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+input, textarea {
+    width: -webkit-fill-available;
+    width: -moz-available;
+    font-size: 1rem;
+    font-weight: inherit;
+    border: none;
+    padding: 0.75em;
+    border-bottom: .12em solid var(--primary-color);
+    font-family: inherit;
+    transition-duration: .07s;
+    background-color: #f3f3f3;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 10em;
+}
+
+input:focus, textarea:not(:read-only):focus{
+    filter: drop-shadow(0 0 0.2rem var(--shadow-color));
+    border-color: transparent;
+    outline: none;
+    border-radius: .5rem;
+    padding: .85em;
+    margin: -.1em;
+    background-color: white;
+}
+
+textarea:read-only:focus {
+    outline: none;
+}
+
+button {
+    padding: .5em 1em;
+    border: none;
+    border-radius: .5rem;
+    background: var(--primary-color);
+    background-color: var(--page-bg-color);
+    font-size: 1rem;
+    font-weight: inherit;
+    transition-duration: .1s;
+}
+
+button:enabled:hover {
+    background: white !important;
+    color: var(--primary-color) !important;
+    filter: drop-shadow(0 0 0.2rem var(--shadow-color));
+    cursor: pointer;
+}

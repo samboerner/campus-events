@@ -1,0 +1,33 @@
+<div id="cal">
+    <template id="template" shadowrootmode="open">
+        <link rel="stylesheet" href="../static/styles/calendar-styles.css">
+
+        <div class="cal-wrapper">
+            <header class="cal-header">
+                <button id="prev-month">◄</button>
+                <div id="month-year"></div>
+                <button id="next-month">►</button>
+            </header>
+            <div class="cal-body">
+                <ul class="weekdays">
+                    <li>Sun</li>
+                    <li>Mon</li>
+                    <li>Tue</li>
+                    <li>Wed</li>
+                    <li>Thu</li>
+                    <li>Fri</li>
+                    <li>Sat</li>
+                </ul>
+                <ul class="dates" id="dates"></ul>
+            </div>
+            <div id="modal-container" class="modal-container">
+                
+            </div>
+        </div>
+
+        <script>
+            const calEvents = {{events | tojson}};
+        </script>
+        <script src="/static/websrc/calendar.js" defer></script>
+    </template>
+</div>

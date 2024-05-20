@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/styles/styles.css">
+    <title>Cyclone Events</title>
+</head>
+<body>
+    <div class="content-wrapper">
+        {% include 'header.html' %}
+        <div class="white box flex-col">
+            <div class="large-text" style="font-size: 2.5rem;">
+                {{user}}'s Account
+            </div>
+            <div class="flex-row">
+                <div class="full-width flex-col">
+                    <div class="large-text">Your Events</div>
+                    {% for event in user_events %}
+                        <a href="event/{{event.id}}" class="account-event">
+                            <div class="name">{{event.name}}</div>
+                            <div>{{event.date}}</div>
+                            <div>{{event.description | truncate(256, True)}}</div>
+                        </a>
+                    {% endfor %}
+                </div>
+                <div class="full-width flex-col">
+                    <div class="large-text">Your RSVPs</div>
+                    {% for event in user_rsvps %}
+                        <a href="event/{{event.id}}" class="account-event">
+                            <div class="name">{{event.name}}</div>
+                            <div>{{event.date}}</div>
+                            <div>{{event.description | truncate(256, True)}}</div>
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% include 'footer.html' %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,178 @@
+@import url("./root.css");
+
+.cal-wrapper {
+    width: calc(100% - 2rem);
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: .5rem;
+    filter: drop-shadow(0 0 .3rem var(--shadow-color));
+    position: relative;
+    overflow: hidden;
+}
+
+.cal-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.cal-header #month-year {
+    min-width: 8em;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+button {
+    background: var(--primary-color);
+    color: white;
+}
+
+.cal-body ul {
+    padding: 0;
+}
+
+.cal-body li {
+    width: calc(100% / 7);
+}
+
+.cal-body .dates li.current-day {
+    background-color: var(--secondary-color);
+}
+
+.cal-body .weekdays, .cal-body .dates {
+    list-style: none;
+    flex-wrap: wrap;
+    display: flex;
+}
+
+.cal-body .weekdays {
+    text-align: center;
+    font-weight: 700;
+}
+
+.cal-body .dates li {
+    height: 7rem;
+    width: calc(calc(100% / 7) - 1rem);
+    padding: .5rem;
+    outline: 1px solid lightgray;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: .15rem;
+    cursor: pointer;
+    transition: transform .1s;
+    background-color: white;
+}
+
+.cal-body .dates li:hover {
+    transform: scale(1.05);
+}
+
+.inactive {
+    color: lightgray;
+}
+
+.event {
+    background-color: var(--primary-color);
+    color: white;
+    padding: .15rem;
+    border-radius: .15rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: .9em;
+}
+
+.inactive .event {
+    opacity: .5;
+}
+
+
+.modal-container {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    animation: modal-container-in .2s;
+    background-color: #00000070;
+}
+
+@keyframes modal-container-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.modal-container > .modal {
+    width: calc(100% - 22rem);
+    height: calc(100% - 13rem);
+    background-color: white;
+    padding: 1rem 5rem;
+    padding-right: 1rem;
+    border-radius: .5rem;
+    animation: modal-in .3s;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    position: relative;
+}
+
+@keyframes modal-in {
+    from {
+        transform: scale(.8);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+.modal > .title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: .5rem;
+}
+
+.modal > .event {
+    display: block;
+    width: -webkit-fill-available;
+    width: -moz-available;
+    font-size: 1rem;
+    padding: .5rem;
+    border-radius: .5rem;
+    cursor: pointer;
+    transition-duration: .1s;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+.modal > .event:hover {
+    background-color: white;
+    color: black;
+    filter: drop-shadow(0 0 .2rem var(--shadow-color));
+}
+
+.modal > .back-button {
+    font-size: 1.5em;
+    border-radius: 100%;
+    padding: .5rem;
+    width: 2em;
+    height: 2em;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+}
